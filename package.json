@@ -26,6 +26,14 @@
     "compiler",
     "walker"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinata-llc/zargon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pinata-llc/zargon/issues"
+  },
+  "homepage": "https://github.com/pinata-llc/zargon#readme",
   "dependencies": {
     "reflect-metadata": "^0.1.13"
   },
