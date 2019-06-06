@@ -1,0 +1,72 @@
+{
+  "name": "zargon",
+  "version": "0.1.0",
+  "description": "Build any AST from JSON",
+  "main": "lib/zargon.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "test": "npm run build && ava",
+    "coverage": "npm run build && nyc ava"
+  },
+  "contributors": [
+    "Agustin Zubiaga <agustin@gopinata.com>",
+    "Georg Goettlich <georg@gopinata.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "AST",
+    "JSON",
+    "DSL",
+    "language",
+    "interpreter",
+    "compiler",
+    "walker"
+  ],
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "ava": "^2.0.0",
+    "husky": "^2.4.0",
+    "nyc": "^14.1.1",
+    "prettier": "^1.17.1",
+    "ts-node": "^8.2.0",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.1"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "**/*.test.ts"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "all": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm run build && git add lib"
+    }
+  }
+}

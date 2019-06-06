@@ -1,0 +1,11 @@
+# node modules
+/node_modules
+
+# testing
+/coverage
+/.nyc_output
+
+# misc
+.idea
+.DS_Store
+npm-debug.log*
