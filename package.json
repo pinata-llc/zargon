@@ -1,6 +1,6 @@
 {
   "name": "zargon",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Build any AST from JSON",
   "main": "lib/zargon.js",
   "files": [
