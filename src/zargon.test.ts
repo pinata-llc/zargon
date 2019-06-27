@@ -72,3 +72,14 @@ test("unknown node type", t => {
 test("it returns null for a null entry", t => {
   t.is(build(null), null);
 });
+
+@ASTNode
+class NullLiteral {}
+
+test("supports nodes with arguments", t => {
+  const tree = {
+    type: "NullLiteral",
+  };
+
+  t.true(build(tree) instanceof NullLiteral);
+});

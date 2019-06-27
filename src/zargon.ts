@@ -41,26 +41,27 @@ export function build<T extends IEntry>(entry: T | null, nodeTypes: INodeTypes =
   }
 
   const paramMeta = Reflect.getMetadata(NODE_PARAMS_KEY, nodeClass);
-
   const params = [];
 
-  for (const { name, isLiteral } of paramMeta) {
-    let param = entry[name];
+  if (paramMeta) {
+    for (const { name, isLiteral } of paramMeta) {
+      let param = entry[name];
 
-    if (!isLiteral) {
-      if (Array.isArray(param)) {
-        const statements = param;
-        param = [];
+      if (!isLiteral) {
+        if (Array.isArray(param)) {
+          const statements = param;
+          param = [];
 
-        for (const statement of statements) {
-          param.push(build(statement, nodeTypes));
+          for (const statement of statements) {
+            param.push(build(statement, nodeTypes));
+          }
+        } else if (typeof param === "object") {
+          param = build(param, nodeTypes);
         }
-      } else if (typeof param === "object") {
-        param = build(param, nodeTypes);
       }
-    }
 
-    params.push(param);
+      params.push(param);
+    }
   }
 
   return new nodeClass(...params);
