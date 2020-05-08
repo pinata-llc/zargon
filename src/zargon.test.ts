@@ -64,9 +64,12 @@ test("instatiates the tree", t => {
 });
 
 test("unknown node type", t => {
-  t.throws(() => {
-    build({ type: "BluffStatement" });
-  }, UnknownNodeType);
+  t.throws(
+    () => {
+      build({ type: "BluffStatement" });
+    },
+    { instanceOf: UnknownNodeType },
+  );
 });
 
 test("it returns null for a null entry", t => {

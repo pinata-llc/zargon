@@ -38,7 +38,7 @@
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "ava": "^2.0.0",
+    "ava": "^3.8.2",
     "husky": "^2.4.0",
     "nyc": "^14.1.1",
     "prettier": "^1.17.1",
@@ -48,7 +48,6 @@
     "typescript": "^3.5.1"
   },
   "ava": {
-    "compileEnhancements": false,
     "extensions": [
       "ts"
     ],
